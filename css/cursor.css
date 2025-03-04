@@ -1,0 +1,52 @@
+/* Custom Cursor Styles */
+.cursor-outer,
+.cursor-inner {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.1s;
+}
+
+.cursor-outer {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.08s ease-out;
+}
+
+.cursor-inner {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    transition: all 0.05s ease-out;
+}
+
+/* Different cursor states */
+body:not(.has-custom-cursor) .cursor-outer,
+body:not(.has-custom-cursor) .cursor-inner {
+    display: none;
+}
+
+.cursor-grow .cursor-outer {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(138, 43, 226, 0.1);
+    border-color: var(--accent-color);
+}
+
+.cursor-grow .cursor-inner {
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.cursor-hidden .cursor-outer,
+.cursor-hidden .cursor-inner {
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .cursor-outer,
+    .cursor-inner {
+        display: none !important;
+    }
+}
